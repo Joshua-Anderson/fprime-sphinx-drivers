@@ -351,16 +351,10 @@ namespace Drv {
     GPIOintHandler_Master(I64 arg, GPIOInterruptRouter::GPIOIntNum int_num)
   #endif
   {
-    #ifdef TGT_OS_TYPE_VXWORKS
-        I32 lock_key = intLock();
-    #endif
       GPIODriverComponentImpl* comp_ptr = reinterpret_cast<Drv::GPIODriverComponentImpl*>(arg);
       FW_ASSERT(comp_ptr != NULL);
       FW_ASSERT(comp_ptr->m_intRouter_p != NULL);
       comp_ptr->m_intRouter_p->RouteInterrupt(int_num);
-    #ifdef TGT_OS_TYPE_VXWORKS
-        intUnlock(lock_key);
-    #endif
   }
 
 

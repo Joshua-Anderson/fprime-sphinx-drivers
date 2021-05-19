@@ -29,6 +29,9 @@ namespace Drv {
             // Check that all bits can be set and cleared
             void testAllBits(void);
 
+            // Check that all bits can be set and cleared atomically
+            void testAllBitsAtomic(void);
+
             // Check that an out-of-range offset results in a failure for setBit
             void testOutOfRangeSet(void);
 

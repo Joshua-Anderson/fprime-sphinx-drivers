@@ -80,11 +80,6 @@ namespace Drv {
     NATIVE_UINT_TYPE pin_edge[4] = {0,1,1,0};
     GPIOInterruptRouter *null_router = NULL;
     GPIOInterruptRouter *int_router = new GPIOInterruptRouter();
-    
-    //trigger linux error, set atomic
-    NATIVE_UINT_TYPE valid_pin_dir[4] = {0,0,0,0};
-    ASSERT_DEATH({this->component.init_comp(pin_nums, 4, valid_pin_dir, 4, pin_int, 4, pin_pol, 4, pin_edge, 4, int_router);},
-                 "Assertion `0' failed.");
 
     // Null ptr
     ASSERT_DEATH({this->component.init_comp(pin_nums, 4, pin_dir, 4, pin_int, 4, pin_pol, 4, pin_edge, 4, null_router);},
